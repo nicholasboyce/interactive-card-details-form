@@ -30,12 +30,36 @@ cardNumberInput.addEventListener('input', (e) => {
     }
 });
 
+cardNumberInput.addEventListener('invalid', () => {
+    cardNumberInput.classList.add('error');
+    const inputId = cardNumberInput.id;
+    const errorSpan = document.querySelector(`[data-js=${inputId}-error]`);
+
+    if (cardNumberInput.value === '') {
+        errorSpan.textContent = "Can't be blank";
+    } else {
+        errorSpan.textContent = 'Wrong format, numbers only';
+    }
+});
+
 cardHolderInput.addEventListener('input', (e) => {
     cardHolderOutput.textContent = e.target.value.toUpperCase();
     if (e.target.value == '') {
         cardHolderOutput.textContent = 'JANE APPLESEED'
     }
 });
+
+cardHolderInput.addEventListener('invalid', () => {
+    cardHolderInput.classList.add('error');
+    const inputId = cardHolderInput.id;
+    const errorSpan = document.querySelector(`[data-js=${inputId}-error]`);
+
+    if (cardHolderInput.value === '') {
+        errorSpan.textContent = "Can't be blank";
+    } else {
+        errorSpan.textContent = 'Wrong format, numbers only';
+    }
+})
 
 cardMonthInput.addEventListener('input', (e) => {
     let setText = '';
@@ -47,6 +71,18 @@ cardMonthInput.addEventListener('input', (e) => {
     cardMonthOutput.textContent = setText;
     if (e.target.value == '') {
         cardMonthOutput.textContent = '00';
+    }
+});
+
+cardMonthInput.addEventListener('invalid', () => {
+    cardMonthInput.classList.add('error');
+    const inputId = cardMonthInput.id;
+    const errorSpan = document.querySelector(`[data-js=${inputId}-error]`);
+
+    if (cardMonthInput.value === '') {
+        errorSpan.textContent = "Can't be blank";
+    } else {
+        errorSpan.textContent = 'Wrong format, numbers only';
     }
 });
 
@@ -63,6 +99,18 @@ cardYearInput.addEventListener('input', (e) => {
     }
 });
 
+cardYearInput.addEventListener('invalid', () => {
+    cardYearInput.classList.add('error');
+    const inputId = cardMonthInput.id;
+    const errorSpan = document.querySelector(`[data-js=${inputId}-error]`);
+
+    if (cardMonthInput.value === '') {
+        errorSpan.textContent = "Can't be blank";
+    } else {
+        errorSpan.textContent = 'Wrong format, numbers only';
+    }
+});
+
 cardCVCInput.addEventListener('input', (e) => {
     let setText = '';
     if (e.target.value.length < 3) {
@@ -76,13 +124,24 @@ cardCVCInput.addEventListener('input', (e) => {
     }
 });
 
+cardCVCInput.addEventListener('invalid', () => {
+    cardCVCInput.classList.add('error');
+    const inputId = cardCVCInput.id;
+    const errorSpan = document.querySelector(`[data-js=${inputId}-error]`);
+
+    if (cardCVCInput.value === '') {
+        errorSpan.textContent = "Can't be blank";
+    } else {
+        errorSpan.textContent = 'Wrong format, numbers only';
+    }
+});
 
 confirmBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (form.reportValidity()) {
         infoSection.classList.toggle('submitted');
     } else {
-        form.classList.toggle('error');
+        form.classList.add('error');
     }
 });
 

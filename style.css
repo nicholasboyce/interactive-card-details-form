@@ -44,6 +44,7 @@ label,
 .exp-label {
     font-size: 0.75rem;
     letter-spacing: 0.125rem;
+    font-weight: var(--fw-regular);
 }
 
 input {
@@ -119,7 +120,7 @@ main > * {
     min-width: 300px;
     max-height: 245px;
     position: relative;
-    padding: 1.5rem;
+    padding: 1.6rem 2.2rem 1rem 2.2rem;
     display: grid;
     color: var(--clr-neutral-100);
     aspect-ratio: 447 / 245;
@@ -138,12 +139,12 @@ main > * {
 }
 
 .logo {
-    width: 20%;
+    width: 22%;
 }
 
 .card-number {
-    font-size: clamp(1rem, 4.5vw, 2rem);
-    letter-spacing: var(--letter-spacing);
+    font-size: clamp(1rem, 4.5vw, 1.8rem);
+    letter-spacing: calc(var(--letter-spacing) + 1px);
     padding-block-end: 1rem;
     font-weight: var(--fw-regular);
 }
@@ -163,7 +164,7 @@ main > * {
 
 .cardholder,
 .expiration {
-    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
     letter-spacing: var(--letter-spacing);
     font-weight: var(--fw-light);
 }
@@ -192,7 +193,6 @@ form {
     margin-block: auto;
     width: max(24.5rem, 70%);
     color: var(--clr-neutral-600);
-    font-weight: var(--fw-light);
 }
 
 ::placeholder {
@@ -265,4 +265,13 @@ button {
 
 .thanks-btn {
     margin-block-start: 3rem;
+}
+
+span.error {
+    font-size: 0.76rem;
+    color: var(--clr-primary-error);
+}
+
+input.error {
+    border-color: var(--clr-primary-error);
 }
