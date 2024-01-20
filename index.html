@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css">
   <script type="module" src="main.js"></script>
   
@@ -19,14 +19,12 @@
         <p class="card-number" data-js="card-number">0000 0000 0000 0000</p>
         <div class="flex-group space-between">
           <p class="cardholder" data-js="cardholder">JANE APPLESEED</p>
-          <p class="expiration" data-js="expiration">00/00</p>
+          <p class="expiration"><span data-js="card-month">00</span>/<span data-js="card-year">00</span></p>
         </div>
       </div>
       <div class="credit-card back">
-        <p class="card-cvc" data-js="cvc">000</p>
+        <p class="card-cvc" data-js="card-cvc">000</p>
       </div>
-      <!-- <img src="images/bg-card-front.png" alt="Credit card front">
-      <img src="images/bg-card-back.png" alt="Credit card back"> -->
     </div>
     <div class="info-section flex-group">
       <form action="#" class="form">
@@ -38,24 +36,24 @@
           </li>
           <li class="form-row">
             <label for="card-number">CARD NUMBER</label>
-            <input type="text" name="card-number" id="card-number" placeholder="e.g. 1234 5678 9123 0000">
+            <input type="tel" name="card-number" id="card-number" minlength="19" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
             <span class="error" aria-live="polite" data-js="card-number-error"></span>
           </li>
           <li class="form-row">
             <div class="exp-info" aria-labelledby="exp-label">
               <span class="exp-label" id="exp-label">EXP. DATE (MM/YY)</span>
               <p class="exp-month">
-                <input type="text" name="month" id="month" placeholder="MM" class="exp-month">
+                <input type="text" name="month" id="month" placeholder="MM" class="exp-month" minlength="2" maxlength="2">
                 <span class="error" aria-live="polite" data-js="year-error"></span>
               </p>
               <p class="exp-year">
-                <input type="text" name="year" id="year" placeholder="YY">
+                <input type="text" name="year" id="year" placeholder="YY" minlength="2" maxlength="2">
                 <span class="error" aria-live="polite" data-js="month-error"></span>
               </p>
             </div>
             <p class="cvc">
               <label for="cvc">CVC</label>
-              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
+              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3">
               <span class="error" aria-live="polite" data-js="cvc error"></span>
             </p>
           </li>

@@ -1,5 +1,5 @@
 :root {
-    --clr-primary-linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --clr-primary-linear-gradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
     --clr-primary-error: hsl(0, 100%, 66%);
 
     --clr-neutral-100: hsl(0, 0%, 100%);
@@ -9,6 +9,8 @@
 
     --fs-p: 18px;
     --ff-default: 'Space Grotesk', sans-serif;
+    --fw-light: 300;
+    --fw-regular: 400;
     --fw-medium: 500;
     --row-gap: 0.5rem;
     --br: 0.5rem;
@@ -50,6 +52,13 @@ input {
     border: 1px solid var(--clr-neutral-200);
     border-radius: var(--br);
     font-size: var(--fs-p);
+    font-weight: var(--fw-regular);
+}
+
+input:focus,
+input:active {
+    outline: none;
+    border-color: var(--clr-primary-linear-gradient);
 }
 
 .flex-group {
@@ -71,7 +80,7 @@ body {
     font-weight: var(--fw-medium);
 }
 
-@media (min-width: 965px) {
+@media (min-width: 1090px) {
     body {
         background-image: url(images/bg-main-desktop.png);
         background-size: 33.55% 100%;
@@ -85,7 +94,7 @@ main {
     margin-block: 2rem;
 }
 
-@media (min-width: 965px) {
+@media (min-width: 1090px) {
     main {
         flex-direction: row;
     }
@@ -107,6 +116,7 @@ main > * {
     background-repeat: no-repeat;
     background-size: contain;
     width: min(447px, 80vw);
+    min-width: 300px;
     max-height: 245px;
     position: relative;
     padding: 1.5rem;
@@ -120,7 +130,7 @@ main > * {
     grid-template-rows: 1fr 0.25fr 0.25fr;
 }
 
-@media (max-width: 965px) {
+@media (max-width: 1090px) {
     .front {
         position: relative;
         top: 5.75rem;
@@ -135,6 +145,7 @@ main > * {
     font-size: clamp(1rem, 5vw, 2rem);
     letter-spacing: var(--letter-spacing);
     padding-block-end: 1rem;
+    font-weight: var(--fw-regular);
 }
 
 .back {
@@ -142,7 +153,7 @@ main > * {
     margin-inline-start: 5.5rem;
 }
 
-@media (max-width: 965px) {
+@media (max-width: 1090px) {
     .back {
         position: absolute;
         right: 0;
@@ -152,8 +163,9 @@ main > * {
 
 .cardholder,
 .expiration {
-    font-size: clamp(0.88rem, 3vw, 0.9rem);
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
     letter-spacing: var(--letter-spacing);
+    font-weight: var(--fw-light);
 }
 
 .card-cvc {
@@ -161,6 +173,7 @@ main > * {
     right: 10%;
     top: 45%;
     letter-spacing: var(--letter-spacing);
+    font-weight: var(--fw-light);
 }
 
 .info-section {
@@ -171,6 +184,7 @@ form {
     margin-block: auto;
     width: max(24.5rem, 70%);
     color: var(--clr-neutral-600);
+    font-weight: var(--fw-light);
 }
 
 ::placeholder {
