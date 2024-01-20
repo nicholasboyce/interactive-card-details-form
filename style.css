@@ -1,0 +1,133 @@
+:root {
+    --clr-primary-linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --clr-primary-error: hsl(0, 100%, 66%);
+
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-200: hsl(270, 3%, 87%);
+    --clr-neutral-400: hsl(279, 6%, 55%);
+    --clr-neutral-600: hsl(278, 68%, 11%);
+
+    --fs-p: 18px;
+    --ff-default: 'Space Grotesk', sans-serif;
+    --fw-medium: 500;
+}
+
+* {
+    margin: 0;
+    font: inherit;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+label,
+input {
+    display: block;
+    width: 100%;
+}
+
+.flex-group {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    background-image: url(images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    font-family: var(--ff-default);
+}
+
+@media (min-width: 376px) {
+    body {
+        background-image: url(images/bg-main-desktop.png);
+    }
+}
+
+main {
+    width: min(90%, 70rem);
+}
+
+main > * {
+    flex: 1;
+}
+
+.credit-cards {
+    display: grid;
+    row-gap: 2rem;
+}
+
+.credit-card {
+    --_image: var(--image, url(images/bg-card-front.png));
+    background-image: var(--_image);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: min(447px, 80vw);
+    max-height: 245px;
+    position: relative;
+    padding: 1.5rem;
+    display: grid;
+    color: var(--clr-neutral-100);
+    aspect-ratio: 447 / 245;
+}
+
+.front {
+    grid-template-rows: 1fr 0.25fr 0.25fr;
+}
+
+.back {
+    --image: url(images/bg-card-back.png);
+}
+
+.card-cvc {
+    position: absolute;
+    right: 10%;
+    top: 43%;
+}
+
+@media (min-width: 376px) {
+    .card-cvc {
+        top: 45%;
+    }
+}
+
+.info-section {
+    justify-content: center;
+}
+
+form {
+    margin-block: auto;
+    width: 60%;
+}
+
+.form-rows {
+    list-style-type: none;
+    padding: 0;
+}
+
+.form-row:nth-child(3) {
+    align-content: end;
+}
+
+.exp-year {
+    flex-direction: column;
+    justify-content: end;
+}
+
+.thanks {
+    display: none;
+}
