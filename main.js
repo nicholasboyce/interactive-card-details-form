@@ -13,6 +13,12 @@ const cardYearOutput = document.querySelector("[data-js=card-year");
 const cardCVCInput = document.querySelector("#cvc");
 const cardCVCOutput = document.querySelector("[data-js=card-cvc");
 
+const confirmBtn = document.querySelector(".confirm-btn");
+const infoSection = document.querySelector(".info-section");
+const form = document.querySelector('form');
+
+const continueBtn = document.querySelector(".thanks-btn");
+
 cardNumberInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replaceAll(" ", "").split("").reduce((seed, next, index) => {
         if (index !== 0 && !(index % 4)) seed += " ";
@@ -69,3 +75,18 @@ cardCVCInput.addEventListener('input', (e) => {
         cardCVCOutput.textContent = '000';
     }
 });
+
+
+confirmBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (form.reportValidity()) {
+        infoSection.classList.toggle('submitted');
+    } else {
+        form.classList.toggle('error');
+    }
+});
+
+continueBtn.addEventListener('click', () => {
+    form.classList.toggle('submitted');
+    location.reload();
+})
